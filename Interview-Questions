@@ -1,0 +1,192 @@
+GitHub Questions
+
+How to create repository Git huB?
+What is merge conflicts?
+What is Git Conflicts?
+Git Drop and Git POP
+"Git config" - 
+
+Create GIT Respoitory - #git init
+Branching
+Git merge and git pull working ?
+
+
+
+NGINX
+KEEP ALIVE
+Reverse Proxy
+
+Linux
+SOFT link vs hard Link
+
+TOMCAT
+KEEP ALIVE
+
+
+HAPROXY
+HA Proxy Keep Alive 30s
+
+
+
+
+
+
+Network Bonding in Linux
+
+
+
+Jenkins
+
+Working directory jenkins configure
+use of master slave in jenkins
+
+
+
+Q:1 Why LVM is required ?
+
+Ans: LVM stands for Logical Volume Manager , to resize filesystem’s size online we required LVM partition in Linux. Size of LVM partition can be extended and reduced using the lvextend & lvreduce commands respectively.
+
+Q:2 How To check Memory stats and CPU stats ?
+
+Ans:  Using ‘free’ & ‘vmstat’ command we can display the physical and virtual memory statistics respectively.With the help of ‘sar’ command we see the CPU utilization & other stats.
+
+Q:3 What does Sar provides and at which location Sar logs are stored ?
+
+Ans: Sar Collect, report, or save system activity information. The default version of the sar command (CPU utilization report) might be one of the first facilities the  user  runs  to  begin system  activity investigation, because it monitors major system resources. If CPU utilization is near 100 percent (user + nice + system), the workload sampled is CPU-bound.
+
+By  default log files of Sar command  is located at  /var/log/sa/sadd file, where the dd parameter indicates the current day.
+
+Q:4 How to increase the size of LVM partition ?
+
+Ans: Below are the Logical Steps :
+– Use the lvextend command (lvextend -L +100M /dev/<Name of the LVM Partition> , in this example we are extending the size by 100MB.
+– resize2fs /dev/<Name of the LVM Partition>
+– check the size of partition using ‘df -h’ command
+
+Q:5 How to reduce or shrink the size of LVM partition ?
+
+Ans: Below are the logical Steps to reduce size of LVM partition :
+-Umount the filesystem using umount command,
+-use resize2fs command , e.g resiz2fs /dev/mapper/myvg-mylv 10G
+-Now use the lvreduce command , e.g lvreduce -L 10G /dev/mapper/myvg-mylv
+
+Above Command will shrink the size & will make the filesystem size 10GB.
+
+ Q:6 How to create partition from the raw disk ?
+
+Ans: Using fdisk utility we can create partitions from the raw disk.Below are the steps to create partition from the raw dsik :
+– fdisk  /dev/hd* (IDE) or /dev/sd* (SCSI)
+– Type n to create a new partition
+–  After creating partition , type w command to write the changes to the partition table.
+
+ Q:7 Where the kernel modules are located ?
+
+Ans: The ‘/lib/modules/kernel-version/’ directory stores all kernel modules or compiled drivers in Linux operating system. Also with ‘lsmod’ command we can see all the installed kernel modules.
+
+Q:8 What is umask ?
+
+Ans: umask stands for ‘User file creation mask’, which determines the settings of a mask that controls which file permissions are set for files and directories when they are created.
+
+Q:9 How to set the umask permanently for a user?
+
+Ans: To set this value permanently for a user, it has to be put in the appropriate profile file which depends on the default shell of the user.
+
+Q:10 How to change the default run level in linux ?
+
+Ans: To change the run level we have to edit the file “/etc/inittab” and change initdefault entry ( id:5:initdefault:). Using ‘init’ command we change the run level temporary like ‘init 3’ , this command will move the system in runlevl 3.
+
+Q:11 How to share a directory using nfs ?
+
+Ans: To share a directory using nfs , first edit the configuration file ‘/etc/exportfs’ , add a entry like
+‘/<directory-name>  <ip or Network>(Options)’ and then restart the nfs service.
+
+Q:12 How to check and mount nfs share ?
+
+Ans: Using ‘showmount’ command we can see what directories are shared via nfs e.g ‘showmount -e <ip address of nfs server>’.Using mount command we can mount the nfs share on linux machine.
+
+Q:13 What are the default ports used for SMTP,DNS,FTP,DHCP,SSH and squid ?
+Ans: Service      Port
+SMTP          25
+DNS            53
+FTP             20 (data transfer) , 21 ( Connection established)
+DHCP         67/UDP(dhcp server) , 68/UDP(dhcp client)
+SSH            22
+Squid         3128
+
+Q:14 What is Network Bonding ?
+
+Ans: Network bonding is the aggregation of multiple Lan cards into a single bonded interface to provide fault tolerance and high performance. Network bonding is also known as NIC Teaming.
+
+Q:15 What  are the different modes of Network bonding in Linux ?
+
+Ans: Below are list of modes used in Network Bonding :
+
+balance-rr or 0 – round-robin mode for fault tolerance and load balancing.
+active-backup or 1 – Sets active-backup mode for fault tolerance.
+balance-xor or 2 – Sets an XOR (exclusive-or) mode for fault tolerance and load balancing.
+broadcast or 3 – Sets a broadcast mode for fault tolerance. All transmissions are sent on all slave interfaces.
+802.3ad or 4  – Sets an IEEE 802.3ad dynamic link aggregation mode. Creates aggregation groups that share the same speed & duplex settings.
+balance-tlb or 5 –  Sets a Transmit Load Balancing (TLB) mode for fault tolerance & load balancing.
+balance-alb or 6 –  Sets an Active Load Balancing (ALB) mode for fault tolerance & load balancing.
+
+Q:16 How to check and verify the status the bond interface.
+
+Ans: Using the command ‘cat /proc/net/bonding/bond0’ , we can check which mode is enabled and what lan cards are used in this bond. In this example we have one only one bond interface but we can have multiple bond interface like bond1,bond2 and so on.
+
+Q:17 How to check default route and routing table ?
+
+Ans: Using the Commands ‘netstat -nr’ and ‘route -n’ we can see the default route and routing tables.
+
+Q:18 How to check which ports are listening in my Linux Server ?
+
+Ans:  Use the Command ‘netstat –listen’ and ‘lsof -i’
+
+Q:19 List the services that are enabled at a particular run level in linux server ?
+
+Ans: With the help of command ‘chkconfig –list | grep 5:on’ we can list all the service that are enabled in run level5. For other run levels just replace 5 with the respective run level.
+
+Q:20 How to enable a service at a particular run level ?
+
+Ans: We can enable a service using the Command ‘chkconfig <Service-Name> on –level 3’
+
+Q:21 How to upgrade Kernel in Linux ?
+
+Ans: We should never upgrade Linux Kernel , always install the new New kernel using rpm command because upgrading a kenel can make your linux box in a unbootable state.
+
+Q:22 How To scan newly asssigned luns on linux box without rebooting ?
+
+Ans: There are two ways to scan newly assigned luns :
+Method:1 if sg3 rpm is installed , then run the command ‘rescan-scsi-bus.sh’
+Method:2 Run the Command ,  echo ” – – – ” > /sys/class/scsi_host/hostX/scan
+
+Q:23 How  to find WWN numbers of HBA cards in Linux Server ?
+
+Ans: We can find the WWN numbers of HBA cards using the command ‘systool -c fc_host -v | grep port_name’
+
+Q:24 How to add & change the Kernel parameters ?
+
+Ans: To Set the kernel parameters in linux , first edit the file ‘/etc/sysctl.conf’ after making the changes save the file and run the command ‘sysctl -p’ , this command will make the changes permanently without rebooting the machine.
+
+Q:25 What is Puppet Server ?
+
+Ans: Puppet is an open-source & enterprise software for configuration management toll in UNIX like  operating system.  Puppet is a  IT automation software used to push configuration to its clients (puppet agents) using code. Puppet code can do a variety of tasks from installing new software, to check file permissions, or updating user accounts & lots of other tasks.
+
+Q:26 What are manifests in Puppet ?
+
+Ans: Manifests in Puppet are the files in which the client configuration is specified.
+
+Q:27 Which Command is used to sign requested certificates in Puppet Server ?
+
+Ans: ‘puppetca  –sign hostname-of-agent’ in (2.X)  & ‘puppet ca  sign hostname-of-agent’ in  (3.X)
+
+Q:28  At which location  Puppet Master Stores Certificates ?
+
+Ans:  /var/lib/puppet/ssl/ca/signed
+
+Q:29 How to find all the regular files in a directory  ?
+
+Ans: using the command ‘find /<directory -type f’.
+
+Q:30 What is load average in a linux ?
+
+Ans: Load  Average is defined as the average sum of the number of process waiting in the run queue and number of process currently executing over the period of 1,5 and 15  minutes. Using the ‘top’ and ‘uptime’ command we find the load average of a linux sever.
