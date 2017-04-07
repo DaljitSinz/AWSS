@@ -43,7 +43,7 @@ use of master slave in jenkins
 
 
 Q:1 Why LVM is required ?
-
+http://www.tecmint.com/extend-and-reduce-lvms-in-linux/
 Ans: LVM stands for Logical Volume Manager , to resize filesystem’s size online we required LVM partition in Linux. Size of LVM partition can be extended and reduced using the lvextend & lvreduce commands respectively.
 
 Q:2 How To check Memory stats and CPU stats ?
