@@ -5,3 +5,8 @@ Q-4     aws cli
 Q-5     VPS
 Q-6     DataBase Repicaltion RDS
 Choosing the Right Tool to Provision AWS Infrastructure
+
+
+http://cloudacademy.com/blog/the-5-best-tools-for-aws-deployment/
+
+Chef and Puppet, Ansible AWS Beanstalk.AWS Code Deploy
